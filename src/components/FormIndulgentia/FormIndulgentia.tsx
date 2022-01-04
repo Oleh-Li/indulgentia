@@ -1,21 +1,13 @@
-import React, { useState } from "react";
-// import styles from "./addIndulgentia.module.css"
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { IRootState, IItem } from "../../interfaces";
 import { inputChange, inputClear } from "../../redux/actions/input";
-
-const data: IItem[] = [
-  {
-    text: "Buy icecream",
-    id: 1,
-  },
-];
+import { addDataItem } from "../../redux/actions/data";
 
 const InputForm = () => {
-  const [list, setList] = useState(data);
-
-  const value = useSelector((state:IRootState) => state.input);
-  const dispatch = useDispatch()
+  const value = useSelector((state: IRootState) => state.input);
+  const data = useSelector((state: IRootState) => state.data);
+  const dispatch = useDispatch();
 
   const inputHandler = (evt: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(inputChange(evt.currentTarget.value));
@@ -23,14 +15,10 @@ const InputForm = () => {
 
   const onHandleSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
-
-    setList([...list, { text: value, id: Date.now() }]);
-
+    dispatch(addDataItem({ text: value, id: Date.now() }));
     dispatch(inputClear());
   };
 
-  console.log(list);
-  console.log(value);
   return (
     <>
       <form onSubmit={onHandleSubmit}>
@@ -45,7 +33,7 @@ const InputForm = () => {
       </form>
 
       <ul>
-        {list.map((item) => (
+        {data.map((item) => (
           <li key={item.id}>{item.text}</li>
         ))}
       </ul>
