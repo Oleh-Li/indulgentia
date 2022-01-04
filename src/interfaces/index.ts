@@ -4,9 +4,9 @@ export interface IItem {
   id: number;
 }
 
-// export interface IData {
-//   data: IItem[];
-// }
+export interface IData {
+  data: IItem[];
+}
 
 export interface IRootState {
   input: string;

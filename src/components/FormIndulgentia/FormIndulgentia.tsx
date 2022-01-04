@@ -1,12 +1,11 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { IRootState, IItem } from "../../interfaces";
+import { IRootState } from "../../interfaces";
 import { inputChange, inputClear } from "../../redux/actions/input";
 import { addDataItem } from "../../redux/actions/data";
 
 const InputForm = () => {
   const value = useSelector((state: IRootState) => state.input);
-  const data = useSelector((state: IRootState) => state.data);
   const dispatch = useDispatch();
 
   const inputHandler = (evt: React.ChangeEvent<HTMLInputElement>) => {
@@ -31,12 +30,6 @@ const InputForm = () => {
         />
         <button type="submit">Buy</button>
       </form>
-
-      <ul>
-        {data.map((item) => (
-          <li key={item.id}>{item.text}</li>
-        ))}
-      </ul>
     </>
   );
 };

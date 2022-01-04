@@ -12,3 +12,5 @@ export const inputChange = (text: string): InputActionType => ({
 export const inputClear = () => ({
   type: INPUT_CLEAR,
 });
+
+
