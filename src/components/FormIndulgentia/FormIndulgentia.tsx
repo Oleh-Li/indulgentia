@@ -21,6 +21,10 @@ const InputForm = () => {
   return (
     <>
       <form onSubmit={onHandleSubmit}>
+        <select name="make choise">
+          <option value="lust">Lust</option>
+          <option value="gluttony">Gluttony</option>
+        </select>
         <input
           type="text"
           autoComplete="off"
