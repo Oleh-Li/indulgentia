@@ -10,7 +10,7 @@ const initialState: IItem[] = [];
 export default (state = initialState, action: dataActionType) => {
   switch (action.type) {
     case ADD_DATA_ITEM:
-      return [...state, action.payload];
+      return [ action.payload, ...state,];
 
     case DELETE_DATA_ITEM:
       return state.filter((item) => item.id !== action.payload);
