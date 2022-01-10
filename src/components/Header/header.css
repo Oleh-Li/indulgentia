@@ -1,0 +1,26 @@
+.header__logo {
+  font-family: "Leckerli One";
+  font-size: 30px;
+  line-height: 40px;
+  color: grey;
+}
+
+
+.header_navigation {
+  display: flex;
+}
+
+.header_nav-list{
+  display: flex;
+}
+
+.header_nav-item{
+  margin-right: 20px;
+}
+
+.header_nav-item:last-of-type{
+  margin-right: 0px;
+}
+
+
+

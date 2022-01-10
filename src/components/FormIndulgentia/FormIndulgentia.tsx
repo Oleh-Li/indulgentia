@@ -10,7 +10,6 @@ const InputForm = () => {
   const dispatch = useDispatch();
   const inputValue = useSelector((state: IRootState) => state.input);
   const selectValue = useSelector((state: IRootState) => state.select);
-  const letterFlagValue = useSelector((state: IRootState) => state.letterFlag);
 
   const inputHandler = (evt: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(inputChange(evt.currentTarget.value));
@@ -33,8 +32,13 @@ const InputForm = () => {
     <>
       <form onSubmit={onHandleSubmit}>
         <select onChange={selectHandler} name="make choise">
-          <option value="lust">Lust</option>
-          <option value="gluttony">Gluttony</option>
+          <option value="Lust">Lust</option>
+          <option value="Gluttony">Gluttony</option>
+          <option value="Greed">Greed</option>
+          <option value="Sloth">Sloth</option>
+          <option value="Wrath">Wrath</option>
+          <option value="Envy">Envy</option>
+          <option value="Pride">Pride</option>
         </select>
         <input
           type="text"

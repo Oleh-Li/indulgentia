@@ -5,7 +5,7 @@ import {
 } from "./../actionInterfaces/inputActionInterface";
 const initialState: string = "";
 
-export default (state = initialState, action: InputActionType) => {
+const inputReducer =  (state = initialState, action: InputActionType) => {
   switch (action.type) {
     case INPUT_CHANGE:
       return action.payload;
@@ -17,3 +17,5 @@ export default (state = initialState, action: InputActionType) => {
       return state;
   }
 };
+
+export default inputReducer

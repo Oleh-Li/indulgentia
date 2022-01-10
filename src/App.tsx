@@ -1,20 +1,17 @@
 import "./App.css";
-import FormIndulgentia from "./components/FormIndulgentia/FormIndulgentia";
-import List from "./components/List/List";
-import { useSelector } from "react-redux";
-import { IRootState } from "./interfaces";
-import Letter from "./components/Letter/Letter";
+import Header from "./components/Header/Header";
+import { Route, Routes } from "react-router-dom";
+import HomePage from "./components/pages/HomePage/HomePage";
+import AboutUsPage from "./components/pages/AboutUsPage/AboutUsPage";
 
 function App() {
-  const data = useSelector((state: IRootState) => state.data);
-  const letterFlag = useSelector((state:IRootState)=>state.letterFlag)
-
   return (
     <div className="App">
-      <h3>Indulgentia init</h3>
-      <FormIndulgentia />
-      {data.length > 0 && <List />}
-      {letterFlag && <Letter/>}
+      <Header />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<AboutUsPage />} />
+      </Routes>
     </div>
   );
 }

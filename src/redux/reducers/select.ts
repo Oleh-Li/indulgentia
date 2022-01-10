@@ -5,7 +5,7 @@ import {
 
 const initialState: string = "lust";
 
-export default (state = initialState, action: SelectActionType) => {
+ const selectReducer = (state = initialState, action: SelectActionType) => {
   switch (action.type) {
     case SELECT_CHANGE:
       return action.payload;
@@ -13,3 +13,5 @@ export default (state = initialState, action: SelectActionType) => {
       return state;
   }
 };
+
+export default selectReducer

@@ -7,10 +7,10 @@ import {
 
 const initialState: IItem[] = [];
 
-export default (state = initialState, action: dataActionType) => {
+const dataReducer = (state = initialState, action: dataActionType) => {
   switch (action.type) {
     case ADD_DATA_ITEM:
-      return [ action.payload, ...state,];
+      return [action.payload, ...state];
 
     case DELETE_DATA_ITEM:
       return state.filter((item) => item.id !== action.payload);
@@ -19,3 +19,5 @@ export default (state = initialState, action: dataActionType) => {
       return state;
   }
 };
+
+export default dataReducer;

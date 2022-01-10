@@ -5,12 +5,17 @@ import {
 
 const initialState: boolean = false;
 
-export default (state = initialState, action: LetterFlagActionType) => {
+const letterFlagReducer = (
+  state = initialState,
+  action: LetterFlagActionType
+) => {
   switch (action.type) {
     case CHANGE_LETTER_FLAG:
       return action.payload;
 
     default:
-     return state;
+      return state;
   }
 };
+
+export default letterFlagReducer;
