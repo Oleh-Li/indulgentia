@@ -1,4 +1,5 @@
 import React from "react";
+import "./formIndulgentia.css"
 import { useSelector, useDispatch } from "react-redux";
 import { IRootState } from "../../interfaces";
 import { inputChange, inputClear } from "../../redux/actions/input";
@@ -29,9 +30,11 @@ const InputForm = () => {
   };
 
   return (
-    <>
-      <form onSubmit={onHandleSubmit}>
-        <select onChange={selectHandler} name="make choise">
+    <section className="form-indilgentia-section">
+    <div className="container form-container">
+      <h2 className="form-indulgentia_title" >Choose your Destiny</h2>
+      <form className="form-indulgentia" onSubmit={onHandleSubmit}>
+        <select className="form-indulgentia_select" onChange={selectHandler} name="make choise">
           <option value="Lust">Lust</option>
           <option value="Gluttony">Gluttony</option>
           <option value="Greed">Greed</option>
@@ -41,15 +44,17 @@ const InputForm = () => {
           <option value="Pride">Pride</option>
         </select>
         <input
+        className="form-indulgentia_input"
           type="text"
           autoComplete="off"
           placeholder="input name"
           value={inputValue}
           onChange={inputHandler}
         />
-        <button type="submit">Buy</button>
+        <button className="button" type="submit">Buy</button>
       </form>
-    </>
+    </div>
+    </section>
   );
 };
 

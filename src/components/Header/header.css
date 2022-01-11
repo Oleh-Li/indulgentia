@@ -1,26 +1,45 @@
+/* .container{
+  display: flex;
+  justify-content: center;
+ 
+} */
+
 .header__logo {
-  font-family: "Leckerli One";
+  font-family: var(--font-leckerli);
   font-size: 30px;
   line-height: 40px;
-  color: grey;
+  color: var(--grey);
 }
-
+.header__logo:hover,
+.header_nav-link:hover {
+  color: var(--yellow);
+}
 
 .header_navigation {
   display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
-.header_nav-list{
+.header_nav-list {
+  min-width: 30%;
   display: flex;
-}
-
-.header_nav-item{
-  margin-right: 20px;
-}
-
-.header_nav-item:last-of-type{
-  margin-right: 0px;
+  justify-content: space-between;
 }
 
 
+.header_nav-link {
+  font-family: "Roboto" sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--grey);
+}
 
+/* .header_nav-link:hover{
+  color: palevioletred;
+} */
+
+.header_nav-item:last-of-type {
+  margin-right: 0;
+}

@@ -2,7 +2,8 @@ import "./header.css";
 import { Link } from "react-router-dom";
 
 const Header = () => (
-  <header>
+  <header className="header">
+    <div className="container">
     <nav className="header_navigation">
       <Link to="/" className="header__logo">
         Indulgentia
@@ -21,6 +22,7 @@ const Header = () => (
         </li>
       </ul>
     </nav>
+    </div>
   </header>
 );
 

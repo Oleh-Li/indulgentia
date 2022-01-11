@@ -1,0 +1,56 @@
+.form-indilgentia-section {
+  background-color: var(--black);
+  background-image: url("../../../img/map.png");
+  background-repeat: no-repeat;
+  background-position-x: 70%;
+  background-position-y: 80%;
+  
+}
+
+.form-container {
+  min-height: 400px;
+  position: relative;
+  width: 600px;
+  padding-top: 40px;
+}
+
+.form-indulgentia_title{
+  color: #ffffff;
+  text-align: center;
+  font-weight: 500;
+  margin-bottom: 50px;
+}
+
+.form-indulgentia {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.form-indulgentia_select{
+  width: 35%;
+  height: 50px;
+  font-size: 20px;
+}
+
+.form-indulgentia_input{
+  width: 60%;
+  font-size: 20px;
+}
+
+.button{
+    display: block;
+    margin: 0 auto;
+    width: 240px;
+    height: 64px;
+    font-size: 20px;
+    line-height: 24px;
+    border: 1px solid var(--yellow);
+    background-color: var(--yellow);
+    font-family: "Roboto" sans-serif;
+    text-transform: uppercase;
+    color: #ffffff;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 70px;
+}

@@ -1,0 +1,8 @@
+@font-face {
+    font-family: "Leckerli One";
+    font-style: normal;
+    src: local("Leckerli One"), local("LeckerliOne-Regular"),
+      url("../../fonts/LeckerliOne-Regular.ttf") format("woff2"),
+      /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url("../../fonts/LeckerliOne-Regular.ttf") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  }
