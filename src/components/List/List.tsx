@@ -15,6 +15,7 @@ const List = () => {
   };
 
   return (
+    <div className="container">
     <ul>
       {data.map((item) => (
         <li key={item.id}>
@@ -23,6 +24,7 @@ const List = () => {
         </li>
       ))}
     </ul>
+    </div>
   );
 };
 

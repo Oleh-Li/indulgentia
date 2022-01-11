@@ -6,9 +6,11 @@ const Letter = () => {
   const item = useSelector((state: IRootState) => state.data);
 
   return (
-    <h3 className="letter__header">
+    <div className="container">
+    <h4 className="letter__header">
       Hello {item[0].text} you are fogiven for your {item[0].select}
-    </h3>
+    </h4>
+    </div>
   );
 };
 
