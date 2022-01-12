@@ -28,6 +28,10 @@
   justify-content: space-between;
 }
 
+.active-link {
+  color: goldenrod;
+  cursor: default;
+}
 
 .header_nav-link {
   font-family: "Roboto" sans-serif;

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector} from "react-redux";
 import { IRootState } from "../../../interfaces";
 
 const AboutUsPage = () => {
@@ -8,7 +8,7 @@ const AboutUsPage = () => {
 console.log(selectValue)
   useEffect(() => {
     fetch(
-      `https://pixabay.com/api/?q="dog"&page=1&key=15354044-5c6c2e030b5f90cfcf13d54e3&image_type=photo&orientation=horizontal&per_page=5`
+      `https://pixabay.com/api/?q=${selectValue}&page=1&key=15354044-5c6c2e030b5f90cfcf13d54e3&image_type=photo&orientation=horizontal&per_page=5`
     )
       .then((response) => response.json())
       .then((data) => {
