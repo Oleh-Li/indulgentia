@@ -6,6 +6,8 @@ import { inputChange, inputClear } from "../../redux/actions/input";
 import { addDataItem } from "../../redux/actions/data";
 import { selectChange } from "../../redux/actions/select";
 import { changeLetterFlag } from "../../redux/actions/letterFlag";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const InputForm = () => {
   const dispatch = useDispatch();
@@ -22,6 +24,21 @@ const InputForm = () => {
 
   const onHandleSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
+    if(!inputValue.trim()){
+      console.log("inpur something")
+      toast.dismiss()
+      toast.error('🦄 Oh, input name', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        
+        });
+return
+    }
     dispatch(
       addDataItem({ text: inputValue, id: Date.now(), select: selectValue })
     );
@@ -31,6 +48,17 @@ const InputForm = () => {
 
   return (
     <section className="form-indilgentia-section">
+     <ToastContainer
+position="top-right"
+autoClose={2000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+/>
     <div className="container form-container">
       <h2 className="form-indulgentia_title" >Choose your Destiny</h2>
       <form className="form-indulgentia" onSubmit={onHandleSubmit}>
