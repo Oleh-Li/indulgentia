@@ -5,7 +5,7 @@ function fetchPic(value: string, url: any) {
   )
     .then((response) => response.json())
     .then((data) => {
-      url(data.hits[0].largeImageURL);
+      url(data.hits[0].webformatURL);
       return data.hits;
     })
     .catch(console.warn);

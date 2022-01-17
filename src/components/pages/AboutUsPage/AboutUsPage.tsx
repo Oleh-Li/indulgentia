@@ -14,7 +14,7 @@ const AboutUsPage = () => {
   return (
     <>
       <h3>AboutUsPage</h3>
-      <img src={myUrlPic} alt="gg" />
+      <img src={myUrlPic} alt="fetchedPic" width="400px" />
     </>
   );
 };
