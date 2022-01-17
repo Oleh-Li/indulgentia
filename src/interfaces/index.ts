@@ -2,13 +2,13 @@ export interface IItem {
   text: string;
   id: number;
   select: string;
+  fetchedPic: string
 }
 
 export interface IData {
   data: IItem[];
 }
 
-// export type Select =  string;
 
 export interface IRootState {
   input: string;

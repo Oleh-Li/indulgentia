@@ -9,7 +9,7 @@ const AboutUsPage = () => {
   console.log("selectValue", selectValue);
   useEffect(() => {
     fetchPic(selectValue, setMyUrlPic);
-  });
+  },[selectValue]);
   console.log(" myUrlPic", myUrlPic);
   return (
     <>
