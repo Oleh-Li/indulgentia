@@ -1,36 +1,31 @@
-import "./header.css";
+// import "./header.css";
 import {  NavLink } from "react-router-dom";
+import styles from "./header.module.css"
 
 const Header = () => (
   <header className="header">
     <div className="container">
-      <nav className="header_navigation">
+      <nav className={styles.headerNavigation}>
         <NavLink
           to="/"
-          className={({ isActive }) =>
-            isActive ? "header__logo active-link" : "header__logo"
-          }
+          className={styles.headerLogo}
         >
           Indulgentia
         </NavLink>
 
-        <ul className="header_nav-list">
-          <li className="header_nav-item">
+        <ul className={styles.headerNavList}>
+          <li className={styles.headerNavItem}>
             <NavLink
               to="/"
-              className={({ isActive }) =>
-                isActive ? "header_nav-link active-link" : "header_nav-link"
-              }
+              className={styles.headerNavLink}
             >
               Home
             </NavLink>
           </li>
-          <li className="header_nav-item">
+          <li className={styles.headerNavItem}>
             <NavLink
               to="/about"
-              className={({ isActive }) =>
-                isActive ? "header_nav-link active-link" : "header_nav-link"
-              }
+              className={styles.headerNavLink}
             >
               About Us
             </NavLink>
