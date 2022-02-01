@@ -1,15 +1,15 @@
-.letter__header{
+.letterHeader{
     font-family: "Leckerli One";
     font-weight: normal;
     font-size: 22px;
 }
 
-.latter_wrpper{
+.latterWrpper{
     display: flex;
     margin-top: 20px;
 }
 
-.letter_img{
+.letterImg{
     width: 400px;
     margin-right: 20px;
 }

@@ -1,0 +1,28 @@
+.listTitle{
+text-align: center;
+font-family: var(--font-leckerli);
+font-size: 20px;
+}
+
+.list{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.listItem{
+    margin-right: 20px;
+    margin-bottom: 20px;
+    min-height: 333px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 250px;
+}
+
+.itemText{
+    font-family: var(--font-leckerli);
+}
+

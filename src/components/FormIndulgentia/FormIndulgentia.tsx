@@ -15,7 +15,6 @@ const InputForm = () => {
   const dispatch = useDispatch();
   const inputValue = useSelector((state: IRootState) => state.input);
   const selectValue = useSelector((state: IRootState) => state.select);
-  // const data = useSelector((state:IRootState)=>state.data)
 
   const inputHandler = (evt: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(inputChange(evt.currentTarget.value));
@@ -27,7 +26,7 @@ const InputForm = () => {
 
   useEffect(() => {
     fetchPic(selectValue, setMyUrlPic);
-  }, [inputValue]);
+  }, [selectValue]);
 
   const onHandleSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
