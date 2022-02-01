@@ -3,3 +3,13 @@
     font-weight: normal;
     font-size: 22px;
 }
+
+.latter_wrpper{
+    display: flex;
+    margin-top: 20px;
+}
+
+.letter_img{
+    width: 400px;
+    margin-right: 20px;
+}

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { IRootState } from "../../../interfaces";
 import fetchPic from "../../../services/fetchPic";
+import styles from "./aboutPageStyles.module.css"
 
 const AboutUsPage = () => {
   const [myUrlPic, setMyUrlPic] = useState("");
@@ -12,10 +13,10 @@ const AboutUsPage = () => {
   },[selectValue]);
   console.log(" myUrlPic", myUrlPic);
   return (
-    <>
-      <h3>AboutUsPage</h3>
+    <div className="container">
+      <p className={styles.title}>AboutUsPage</p>
       <img src={myUrlPic} alt="fetchedPic" width="400px" />
-    </>
+    </div>
   );
 };
 

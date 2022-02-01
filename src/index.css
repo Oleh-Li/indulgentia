@@ -27,7 +27,7 @@ a {
 }
 
 .container{
-  width: 940px;
+  max-width: 940px;
   display: block;
   margin: 0 auto;
 }

@@ -1,8 +1,8 @@
 export interface IItem {
-  text: string;
-  id: number;
-  select: string;
-  fetchedPic: string
+ readonly text: string;
+ readonly id: number;
+ readonly select: string;
+ readonly fetchedPic: string
 }
 
 export interface IData {
