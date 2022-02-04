@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { IRootState } from "../../interfaces";
 import { inputChange, inputClear } from "../../redux/actions/input";
@@ -8,7 +8,7 @@ import { changeLetterFlag } from "../../redux/actions/letterFlag";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import fetchPic from "../../services/fetchPic";
-import styles from "./formIndulgentia.module.css"
+import styles from "./formIndulgentia.module.css";
 
 const InputForm = () => {
   const [myUrlPic, setMyUrlPic] = useState("");
@@ -43,7 +43,7 @@ const InputForm = () => {
       });
       return;
     }
-    
+
     dispatch(
       addDataItem({
         text: inputValue,
@@ -71,34 +71,36 @@ const InputForm = () => {
       />
       <div className="container">
         <div className={styles.formContainer}>
-        <h2 className={styles.formIndulgentiaTitle}>Choose your Repentance</h2>
-        <form className={styles.formIndulgentia} onSubmit={onHandleSubmit}>
-          <select
-            className={styles.formIndulgentiaSelect}
-            onChange={selectHandler}
-            name="make choise"
-            value={selectValue}
-          >
-            <option value="Lust">Lust</option>
-            <option value="Gluttony">Gluttony</option>
-            <option value="Greed">Greed</option>
-            <option value="Sloth">Sloth</option>
-            <option value="Wrath">Wrath</option>
-            <option value="Envy">Envy</option>
-            <option value="Pride">Pride</option>
-          </select>
-          <input
-            className={styles.formIndulgentiaInput}
-            type="text"
-            autoComplete="off"
-            placeholder="input name"
-            value={inputValue}
-            onChange={inputHandler}
-          />
-          <button className={styles.button} type="submit">
-            Buy
-          </button>
-        </form>
+          <h2 className={styles.formIndulgentiaTitle}>
+            Choose your Repentance
+          </h2>
+          <form className={styles.formIndulgentia} onSubmit={onHandleSubmit}>
+            <select
+              className={styles.formIndulgentiaSelect}
+              onChange={selectHandler}
+              name="make choise"
+              value={selectValue}
+            >
+              <option value="Lust">Lust</option>
+              <option value="Gluttony">Gluttony</option>
+              <option value="Greed">Greed</option>
+              <option value="Sloth">Sloth</option>
+              <option value="Wrath">Wrath</option>
+              <option value="Envy">Envy</option>
+              <option value="Pride">Pride</option>
+            </select>
+            <input
+              className={styles.formIndulgentiaInput}
+              type="text"
+              autoComplete="off"
+              placeholder="input name"
+              value={inputValue}
+              onChange={inputHandler}
+            />
+            <button className={styles.button} type="submit">
+              Buy
+            </button>
+          </form>
         </div>
       </div>
     </section>
