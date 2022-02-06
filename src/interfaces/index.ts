@@ -1,7 +1,7 @@
 
 export interface IItem {
   readonly text: string;
-  readonly id: number;
+  readonly id: string;
   readonly select: string;
   readonly fetchedPic: string;
 }

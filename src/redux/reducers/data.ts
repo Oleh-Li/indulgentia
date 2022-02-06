@@ -13,7 +13,7 @@ const dataReducer = (state = initialState, action: dataActionType) => {
       return [action.payload, ...state];
 
     case DELETE_DATA_ITEM:
-      return state.filter((item) => item.id !== action.payload);
+      return state.filter((item) => !item.id.includes(action.payload.toString()));
 
     default:
       return state;

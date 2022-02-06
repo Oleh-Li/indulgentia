@@ -20,7 +20,7 @@ const InputForm = () => {
     dispatch(inputChange(evt.currentTarget.value));
   };
 
-  const selectHandler = (evt: React.ChangeEvent<HTMLSelectElement>) => {
+  const selectHandler =  (evt: React.ChangeEvent<HTMLSelectElement>) => {
     dispatch(selectChange(evt.target.value));
   };
 
@@ -28,7 +28,7 @@ const InputForm = () => {
     fetchPic(selectValue, setMyUrlPic);
   }, [selectValue]);
 
-  const onHandleSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
+  const onHandleSubmit = async (evt: React.FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
     if (!inputValue.trim()) {
       toast.dismiss();
@@ -44,10 +44,26 @@ const InputForm = () => {
       return;
     }
 
+    const response = await fetch(
+      "https://indulgentia-95f4c-default-rtdb.europe-west1.firebasedatabase.app/dataItems.json",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          text: inputValue,
+          select: selectValue,
+          fetchedPic: myUrlPic,
+        }) 
+      }
+    );
+
+    const data = await response.json()
+    console.log("Async Data", data.name)
+
     dispatch(
       addDataItem({
         text: inputValue,
-        id: Date.now(),
+        id: data.name,
         select: selectValue,
         fetchedPic: myUrlPic,
       })

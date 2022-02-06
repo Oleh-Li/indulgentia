@@ -10,7 +10,7 @@ export const addDataItem = (dataItem: IItem): dataActionType => ({
   payload: dataItem,
 });
 
-export const deleteDataItem = (id: number) => ({
+export const deleteDataItem = (id: string) => ({
   type: DELETE_DATA_ITEM,
   payload: id,
 });

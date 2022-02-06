@@ -8,7 +8,7 @@ const List = () => {
   const data = useSelector((state: IRootState) => state.data);
   const dispatch = useDispatch();
 
-  const onHandleDelete = (id: number) => {
+  const onHandleDelete = (id:string) => {
     if (data.length <= 1) {
       dispatch(changeLetterFlag(false));
     }
