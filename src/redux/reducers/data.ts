@@ -14,10 +14,12 @@ const dataReducer = (state = initialState, action: dataActionType) => {
       return [action.payload, ...state];
 
     case DELETE_DATA_ITEM:
-      return state.filter((item) => !item.id.includes(action.payload.toString()));
+      return state.filter(
+        (item) => !item.id.includes(action.payload.toString())
+      );
 
-case FETCH_DATA_ITEMS:
-  return [...state, ...action.payload]
+    case FETCH_DATA_ITEMS:
+      return [...state, ...action.payload];
 
     default:
       return state;

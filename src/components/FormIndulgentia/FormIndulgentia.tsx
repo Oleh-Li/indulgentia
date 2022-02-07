@@ -1,14 +1,14 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { IRootState } from "../../interfaces";
+import { IItem, IRootState } from "../../interfaces";
 import { inputChange, inputClear } from "../../redux/actions/input";
-import { addDataItem } from "../../redux/actions/data";
+import { addDataItem, fetchDataItems } from "../../redux/actions/data";
 import { selectChange } from "../../redux/actions/select";
 import { changeLetterFlag } from "../../redux/actions/letterFlag";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import fetchPic from "../../services/fetchPic";
-import fetchDataItems from "../../services/fetchDataItems";
+import fetchDataItemsFromFirebase from "../../services/fetchDataItems";
 import styles from "./formIndulgentia.module.css";
 
 const InputForm = () => {
@@ -21,15 +21,18 @@ const InputForm = () => {
     dispatch(inputChange(evt.currentTarget.value));
   };
 
-  const selectHandler =  (evt: React.ChangeEvent<HTMLSelectElement>) => {
+  const selectHandler = (evt: React.ChangeEvent<HTMLSelectElement>) => {
     dispatch(selectChange(evt.target.value));
   };
 
-  const loadDataItems = useCallback(async()=>await fetchDataItems(), [fetchDataItems])
+  const loadDataItems = useCallback(
+    async () => await fetchDataItemsFromFirebase(),
+    [fetchDataItemsFromFirebase]
+  );
 
-  useEffect(()=>{
-loadDataItems()
-  }, [])
+  useEffect(() => {
+    loadDataItems().then((data) => dispatch(fetchDataItems(data)))
+  }, []);
 
   useEffect(() => {
     fetchPic(selectValue, setMyUrlPic);
@@ -60,11 +63,11 @@ loadDataItems()
           text: inputValue,
           select: selectValue,
           fetchedPic: myUrlPic,
-        }) 
+        }),
       }
     );
 
-    const data = await response.json()
+    const data = await response.json();
 
     dispatch(
       addDataItem({

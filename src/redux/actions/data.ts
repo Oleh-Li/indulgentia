@@ -6,7 +6,7 @@ import {
   DELETE_DATA_ITEM,
 } from "../actionInterfaces/dataInterfaceAction";
 
-export const fetchDataItems = (fetchedDataItems: IItem[]) => ({
+export const fetchDataItems = (fetchedDataItems: any) => ({
   type: FETCH_DATA_ITEMS,
   payload: fetchedDataItems,
 });
