@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { IRootState } from "../../interfaces";
 import { inputChange, inputClear } from "../../redux/actions/input";
@@ -8,6 +8,7 @@ import { changeLetterFlag } from "../../redux/actions/letterFlag";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import fetchPic from "../../services/fetchPic";
+import fetchDataItems from "../../services/fetchDataItems";
 import styles from "./formIndulgentia.module.css";
 
 const InputForm = () => {
@@ -23,6 +24,12 @@ const InputForm = () => {
   const selectHandler =  (evt: React.ChangeEvent<HTMLSelectElement>) => {
     dispatch(selectChange(evt.target.value));
   };
+
+  const loadDataItems = useCallback(async()=>await fetchDataItems(), [fetchDataItems])
+
+  useEffect(()=>{
+loadDataItems()
+  }, [])
 
   useEffect(() => {
     fetchPic(selectValue, setMyUrlPic);
@@ -58,7 +65,6 @@ const InputForm = () => {
     );
 
     const data = await response.json()
-    console.log("Async Data", data.name)
 
     dispatch(
       addDataItem({
