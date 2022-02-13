@@ -5,12 +5,14 @@ import input from "./input";
 import data from "./data";
 import select from "./select";
 import letterFlag from "./letterFlag";
+import loading from "./loadingReducer";
 
 const rootReducer = combineReducers({
   input,
   data,
   select,
   letterFlag,
+  loading,
 });
 
 export default rootReducer;
