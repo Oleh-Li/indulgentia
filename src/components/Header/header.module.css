@@ -1,9 +1,3 @@
-/* .container{
-  display: flex;
-  justify-content: center;
- 
-} */
-
 .headerLogo {
   font-family: var(--font-leckerli);
   font-size: 30px;
@@ -20,6 +14,7 @@
   justify-content: space-between;
   margin-top: 20px;
   margin-bottom: 20px;
+  align-items: center;
 }
 
 .headerNavList {
@@ -39,10 +34,6 @@
   font-size: 20px;
   color: var(--grey);
 }
-
-/* .header_nav-link:hover{
-  color: palevioletred;
-} */
 
 .headerNavItem:last-of-type {
   margin-right: 0;

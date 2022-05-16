@@ -29,14 +29,14 @@ const List = () => {
         {data.map((item) => (
           <li key={item.id} className={styles.listItem}>
             <div className={styles.wraperForImg}>
-              <img src={item.fetchedPic} width="250px" alt="list-pic" />
+              <img className={styles.listImage} src={item.fetchedPic} width="250px" alt="list-pic" />
               <p className={styles.itemText}>
                 The {item.text} Lorem ipsum dolor, sit amet consectetur
                 adipisicing elit. Hic, recusandae minus. Ratione optio ut iure
                 explicabo maiores, ex vitae ab.
               </p>
             </div>
-            <button onClick={() => onHandleDelete(item.id)}>
+            <button className={styles.deleteButton} onClick={() => onHandleDelete(item.id)}>
               delete {item.select}
             </button>
           </li>
