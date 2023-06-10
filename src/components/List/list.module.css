@@ -16,7 +16,7 @@ font-size: 20px;
 .listItem{
     margin-right: 20px;
     margin-bottom: 20px;
-    min-height: 333px;
+    min-height: 270px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
