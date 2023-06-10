@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { IItem, IRootState } from "../../interfaces";
+import { IRootState } from "../../interfaces";
 import { inputChange, inputClear } from "../../redux/actions/input";
 import { addDataItem, fetchDataItems } from "../../redux/actions/data";
 import { selectChange } from "../../redux/actions/select";
@@ -27,12 +27,15 @@ const InputForm = () => {
 
   const loadDataItems = useCallback(
     async () => await fetchDataItemsFromFirebase(),
-    [fetchDataItemsFromFirebase]
+    []
   );
 
+
   useEffect(() => {
-    loadDataItems().then((data) => dispatch(fetchDataItems(data)))
-  }, []);
+    loadDataItems().then((data) => {
+      dispatch(fetchDataItems(data))
+    })
+  }, [dispatch, loadDataItems]);
 
   useEffect(() => {
     fetchPic(selectValue, setMyUrlPic);

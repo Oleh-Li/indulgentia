@@ -19,7 +19,7 @@ const dataReducer = (state = initialState, action: dataActionType) => {
       );
 
     case FETCH_DATA_ITEMS:
-      return [...state, ...action.payload];
+      return [...action.payload];
 
     default:
       return state;

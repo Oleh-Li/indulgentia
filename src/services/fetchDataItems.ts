@@ -10,7 +10,6 @@ const fetchDataItemsFromFirebase = async () => {
       headers: { "Content-Type": "application/json" },
     }
   );
-  console.log("HERE")
   const data = await response.json();
   const dataItems: IItem[] = Object.keys(data).map(key => ({ ...data[key], id: key }))
   return dataItems

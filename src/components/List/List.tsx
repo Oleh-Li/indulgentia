@@ -31,9 +31,7 @@ const List = () => {
             <div className={styles.wraperForImg}>
               <img className={styles.listImage} src={item.fetchedPic} width="250px" alt="list-pic" />
               <p className={styles.itemText}>
-                The {item.text} Lorem ipsum dolor, sit amet consectetur
-                adipisicing elit. Hic, recusandae minus. Ratione optio ut iure
-                explicabo maiores, ex vitae ab.
+                Hello saint {item.text.toUpperCase()}, you bought indulgentia and forgiven for your {item.select.toUpperCase()} now.
               </p>
             </div>
             <button className={styles.deleteButton} onClick={() => onHandleDelete(item.id)}>
