@@ -10,6 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 import fetchPic from "../../services/fetchPic";
 import fetchDataItemsFromFirebase from "../../services/fetchDataItems";
 import styles from "./formIndulgentia.module.css";
+import axios from "axios"
 
 const InputForm = () => {
   const [myUrlPic, setMyUrlPic] = useState("");
@@ -58,20 +59,30 @@ const InputForm = () => {
       return;
     }
 
-    const response = await fetch(
-      "https://indulgentia-95f4c-default-rtdb.europe-west1.firebasedatabase.app/dataItems.json",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          text: inputValue,
-          select: selectValue,
-          fetchedPic: myUrlPic,
-        }),
-      }
+    const response = await axios.post(
+      "https://indulgentia-95f4c-default-rtdb.europe-west1.firebasedatabase.app/dataItems.json", {
+      text: inputValue,
+      select: selectValue,
+      fetchedPic: myUrlPic
+    }
     );
+    const data = await response.data;
 
-    const data = await response.json();
+    // const response = await fetch(
+    //   "https://indulgentia-95f4c-default-rtdb.europe-west1.firebasedatabase.app/dataItems.json",
+    //   {
+    //     method: "POST",
+    //     headers: { "Content-Type": "application/json" },
+    //     body: JSON.stringify({
+    //       text: inputValue,
+    //       select: selectValue,
+    //       fetchedPic: myUrlPic,
+    //     }),
+    //   }
+    // );
+    // console.log("response", response)
+    // const data = await response.json();
+    // console.log("DATA==>", await data)
 
     dispatch(
       addDataItem({

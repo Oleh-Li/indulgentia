@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { deleteDataItem } from "../../redux/actions/data";
 import { changeLetterFlag } from "../../redux/actions/letterFlag";
 import styles from "./list.module.css";
+import axios from "axios"
 
 const List = () => {
   const data = useSelector((state: IRootState) => state.data);
@@ -12,12 +13,12 @@ const List = () => {
     if (data.length <= 1) {
       dispatch(changeLetterFlag(false));
     }
-    await fetch(
+    await axios.delete(
       `https://indulgentia-95f4c-default-rtdb.europe-west1.firebasedatabase.app/dataItems/${id}.json`,
-      {
-        method: "DELETE",
-        headers: { "Content-Type": "application/json" },
-      }
+      // {
+      //   method: "DELETE",
+      //   headers: { "Content-Type": "application/json" },
+      // }
     );
     dispatch(deleteDataItem(id));
   };
