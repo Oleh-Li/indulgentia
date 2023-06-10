@@ -5,9 +5,7 @@ function fetchPic(value: string, url: any) {
   )
     .then((response) => response.json())
     .then((data) => {
-      console.log("fetchPic.ts file", data.hits);
       const randomNumber = Math.ceil(Math.random() * data.hits.length - 1);
-      console.log(randomNumber);
       url(data.hits[randomNumber].webformatURL);
       return data.hits;
     })
