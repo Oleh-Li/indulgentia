@@ -4,7 +4,6 @@ import { IItem } from './../interfaces/index';
 
 const fetchDataItemsFromFirebase = async () => {
   const response = await fetch(
-    
     "https://indulgentia-95f4c-default-rtdb.europe-west1.firebasedatabase.app/dataItems.json",
     {
       method: "GET",
