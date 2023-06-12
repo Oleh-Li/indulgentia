@@ -1,8 +1,8 @@
-import FormIndulgentia from "../../../components/FormIndulgentia/FormIndulgentia";
+import FormIndulgentia from "../../FormIndulgentia/FormIndulgentia";
 import { useSelector } from "react-redux";
 import { IRootState } from "../../../interfaces";
-import Letter from "../../Letter/Letter";
 import List from "../../List/List";
+import Letter from "../../Letter/Letter";
 
 const HomePage = () => {
   const data = useSelector((state: IRootState) => state.data);

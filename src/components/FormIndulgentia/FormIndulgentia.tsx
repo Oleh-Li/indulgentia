@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { IRootState } from "../../interfaces";
+import { IRootState, IItem } from "../../interfaces";
 import { inputChange, inputClear } from "../../redux/actions/input";
 import { addDataItem, fetchDataItems } from "../../redux/actions/data";
 import { selectChange } from "../../redux/actions/select";
@@ -34,7 +34,7 @@ const InputForm = () => {
 
 
   useEffect(() => {
-    loadDataItems().then((data) => {
+    loadDataItems().then((data: IItem[] | undefined) => {
       dispatch(fetchDataItems(data))
     })
   }, [dispatch, loadDataItems]);

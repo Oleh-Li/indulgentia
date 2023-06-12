@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./aboutPageStyles.module.css";
 import { ReactComponent as GitHubSvg } from "../../../img/githubIcon.svg";
 import { ReactComponent as InstagramSvg } from "../../../img/icons8-instagram.svg";
+import { Typography } from "@material-ui/core";
 
 const AboutUsPage = () => {
   return (
@@ -38,11 +39,16 @@ const AboutUsPage = () => {
           </div>
         </div>
         <div className={styles.personalInfo}>
-          <p className={styles.textPersonalInfo}>Name: Oleh Lizun</p>
+          {/* <p className={styles.textPersonalInfo}>Name: Oleh Lizun</p>
           <p className={styles.textPersonalInfo}>Date of birth: 06-Aprl-1989</p>
           <p className={styles.textPersonalInfo}>Adress: Kyiv, Ukraine</p>
           <p className={styles.textPersonalInfo}>Phone: +380938381149</p>
-          <p className={styles.textPersonalInfo}>Email: rrrgo3@gmail.com</p>
+          <p className={styles.textPersonalInfo}>Email: rrrgo3@gmail.com</p> */}
+          <Typography color="textSecondary" variant="h6">Name: Oleh Lizun</Typography>
+          <Typography color="textSecondary" variant="h6">Date of birth: 06-Aprl-1989</Typography>
+          <Typography color="textSecondary" variant="h6">Adress: Kyiv, Ukraine</Typography>
+          <Typography color="textSecondary" variant="h6">Phone: +380938381149</Typography>
+          <Typography color="textSecondary" variant="h6">Email: rrrgo3@gmail.com</Typography>
         </div>
       </div>
     </div>
