@@ -94,6 +94,7 @@ height: 50%;
   flex-direction: column;
   flex-wrap: wrap;
   min-width: 300px;
+  margin-left: 0;
 }
 
 .textPersonalInfo{
