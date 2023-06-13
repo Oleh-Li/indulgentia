@@ -91,8 +91,10 @@ height: 50%;
 
 .personalInfo{
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
-  width: 200px;
+  min-width: 300px;
+  margin-left: 0;
 }
 
 .textPersonalInfo{

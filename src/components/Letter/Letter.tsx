@@ -8,11 +8,11 @@ const Letter = () => {
   return (
     <div className="container">
       <div className={styles.latterWrpper}>
-      <img className={styles.letterImg} src={item[0].fetchedPic} alt="leetr-pic"/>
-    <h4 className={styles.letterHeader}>
-      Hello {item[0].text} you are fogiven for your {item[0].select}
-    </h4>
-    </div>
+        <img className={styles.letterImg} src={item[0].fetchedPic} alt="leetr-pic" />
+        <h4 className={styles.letterHeader}>
+          Hello {item[0].text} you are fogiven for your {item[0].select}
+        </h4>
+      </div>
     </div>
   );
 };
