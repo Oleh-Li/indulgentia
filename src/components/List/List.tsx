@@ -1,3 +1,4 @@
+import React, {useMemo} from 'react'
 import { IRootState } from "../../interfaces/index";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteDataItem } from "../../redux/actions/data";
@@ -9,17 +10,13 @@ const List = () => {
   const data = useSelector((state: IRootState) => state.data);
   const dispatch = useDispatch();
 
+  const resultData = useMemo(() => data.filter(item => item), [data])
+
   const onHandleDelete = async (id: string) => {
     if (data.length <= 1) {
       dispatch(changeLetterFlag(false));
     }
-    await axios.delete(
-      `https://indulgentia-95f4c-default-rtdb.europe-west1.firebasedatabase.app/dataItems/${id}.json`,
-      // {
-      //   method: "DELETE",
-      //   headers: { "Content-Type": "application/json" },
-      // }
-    );
+    await axios.delete( `https://indulgentia-95f4c-default-rtdb.europe-west1.firebasedatabase.app/dataItems/${id}.json`);
     dispatch(deleteDataItem(id));
   };
 
@@ -27,7 +24,7 @@ const List = () => {
     <div className="container">
       <p className={styles.listTitle}>Our Clients</p>
       <ul className={styles.list}>
-        {data.map((item) => (
+        {resultData.map((item) => (
           <li key={item.id} className={styles.listItem}>
             <div className={styles.wraperForImg}>
               <img className={styles.listImage} src={item.fetchedPic} width="250px" alt="list-pic" />

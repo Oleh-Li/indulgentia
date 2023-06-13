@@ -8,7 +8,7 @@ import {
 import fetchDataItemsFromFirebase from "../../services/fetchDataItems";
 
 export const fetchDataItems = () => {
-  return async function (dispatch: (param: any) => void) {
+  return async function (dispatch: (param: { type: string, payload: IItem[] | undefined }) => void) {
     const data = await fetchDataItemsFromFirebase()
     dispatch({ type: FETCH_DATA_ITEMS, payload: data })
   }
