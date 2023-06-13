@@ -5,11 +5,14 @@ import {
   ADD_DATA_ITEM,
   DELETE_DATA_ITEM,
 } from "../actionInterfaces/dataInterfaceAction";
+import fetchDataItemsFromFirebase from "../../services/fetchDataItems";
 
-export const fetchDataItems = (fetchedDataItems: IItem[] | undefined) => ({
-  type: FETCH_DATA_ITEMS,
-  payload: fetchedDataItems,
-});
+export const fetchDataItems = () => {
+  return async function (dispatch: (param: any) => void) {
+    const data = await fetchDataItemsFromFirebase()
+    dispatch({ type: FETCH_DATA_ITEMS, payload: data })
+  }
+};
 
 export const addDataItem = (dataItem: IItem): dataActionType => ({
   type: ADD_DATA_ITEM,

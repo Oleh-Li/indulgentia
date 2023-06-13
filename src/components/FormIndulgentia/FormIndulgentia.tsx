@@ -1,6 +1,6 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { IRootState, IItem } from "../../interfaces";
+import { IRootState } from "../../interfaces";
 import { inputChange, inputClear } from "../../redux/actions/input";
 import { addDataItem, fetchDataItems } from "../../redux/actions/data";
 import { selectChange } from "../../redux/actions/select";
@@ -8,7 +8,6 @@ import { changeLetterFlag } from "../../redux/actions/letterFlag";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import fetchPic from "../../services/fetchPic";
-import fetchDataItemsFromFirebase from "../../services/fetchDataItems";
 import styles from "./formIndulgentia.module.css";
 import axios from "axios"
 
@@ -27,17 +26,9 @@ const InputForm = () => {
     dispatch(selectChange(evt.target.value));
   };
 
-  const loadDataItems = useCallback(
-    async () => await fetchDataItemsFromFirebase(),
-    []
-  );
-
-
   useEffect(() => {
-    loadDataItems().then((data: IItem[] | undefined) => {
-      dispatch(fetchDataItems(data))
-    })
-  }, [dispatch, loadDataItems]);
+      dispatch(fetchDataItems())
+  }, [dispatch]);
 
   useEffect(() => {
     fetchPic(selectValue, setMyUrlPic);
@@ -67,22 +58,6 @@ const InputForm = () => {
     }
     );
     const data = await response.data;
-
-    // const response = await fetch(
-    //   "https://indulgentia-95f4c-default-rtdb.europe-west1.firebasedatabase.app/dataItems.json",
-    //   {
-    //     method: "POST",
-    //     headers: { "Content-Type": "application/json" },
-    //     body: JSON.stringify({
-    //       text: inputValue,
-    //       select: selectValue,
-    //       fetchedPic: myUrlPic,
-    //     }),
-    //   }
-    // );
-    // console.log("response", response)
-    // const data = await response.json();
-    // console.log("DATA==>", await data)
 
     dispatch(
       addDataItem({
