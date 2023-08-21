@@ -19,3 +19,6 @@ interface IDeleteDataItem {
 }
 
 export type dataActionType = IFetchDataItems | IAddDataItem | IDeleteDataItem;
+
+
+//just for check
